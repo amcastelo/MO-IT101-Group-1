@@ -17,7 +17,7 @@ public class AttendanceRecord {
     private Date date;
     private Date timeIn;
     private Date timeOut;
-    private static String csvFile = "D:\\Documents\\MotorPH\\src\\main\\resources\\AttendanceRecord.txt";
+    private static String TXT_FILE_PATH = "D:\\Documents\\MotorPH\\src\\main\\resources\\AttendanceRecord.txt";
     public static ArrayList<AttendanceRecord> attendanceRecords;
 
     public AttendanceRecord(String name, String id, Date date, Date timeIn, Date timeOut) {
@@ -35,7 +35,7 @@ public class AttendanceRecord {
     public static ArrayList<AttendanceRecord> loadAttendance() {
         ArrayList<AttendanceRecord> attendanceRecords = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(getCsvFile()))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(getTXT_FILE_PATH()))) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
@@ -201,10 +201,10 @@ public class AttendanceRecord {
     }
 
     /**
-     * @return the csvFile
+     * @return the TXT_FILE_PATH
      */
-    public static String getCsvFile() {
-        return csvFile;
+    public static String getTXT_FILE_PATH() {
+        return TXT_FILE_PATH;
     }
 
     /**
